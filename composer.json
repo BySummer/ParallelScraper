@@ -1,0 +1,23 @@
+{
+  "name": "bysummer/parallelscraper",
+  "description": "Механизм скраппинга с эмуляцией хрома.",
+  "keywords": ["ps"],
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "version": "1.0.0",
+  "authors": [
+    {"name": "Sergey Ambroziev", "email": "poop.reader123@gmail.com"}
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "symfony/panther": "^1.1",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {"BySummer\\ParallelScraper\\": "src/BySummer/ParallelScraper"}
+  },
+  "require-dev": {
+    "dbrekelmans/bdi": "^1.0",
+    "eaglewu/swoole-ide-helper": "dev-master"
+  }
+}

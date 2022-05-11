@@ -1,0 +1,44 @@
+<?php
+
+namespace BySummer\ParallelScraper\Server;
+
+use BySummer\ParallelScraper\Client\ChromeClient;
+use Swoole\Http\Request;
+use Swoole\Http\Response;
+use Swoole\Http\Server as SwooleServer;
+
+require_once 'vendor/autoload.php';
+
+class Server
+{
+    private SwooleServer $server;
+    private ChromeClient $chrome;
+
+    public function __construct()
+    {
+        $this->server = new SwooleServer("127.0.0.1", 9501);
+        $this->chrome = new ChromeClient();
+
+        $this->server->set(['worker_num' => 4]);
+    }
+
+    public function getServer(): SwooleServer
+    {
+        return $this->server;
+    }
+
+    public function run()
+    {
+        $client = $this->chrome->getClient();
+
+        $this->server->on('Request', function(Request $request, Response $response) use ($client)
+        {
+            new Controller($request, $response, $client);
+        });
+
+        $this->server->start();
+    }
+}
+
+$server = new Server();
+$server->run();
