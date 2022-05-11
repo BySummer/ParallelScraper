@@ -20,7 +20,7 @@ class Query
 
         if(false === $status) {
             echo json_encode(['status' => 0, 'errors' => [
-                    "Curl не выполнил запрос."
+                    "Сервер не запущен."
             ]], JSON_UNESCAPED_UNICODE) . "\n";
         }
 
