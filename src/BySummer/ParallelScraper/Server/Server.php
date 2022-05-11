@@ -18,8 +18,7 @@ class Server
     {
         $this->server = new SwooleServer("127.0.0.1", 9501);
         $this->chrome = new ChromeClient();
-
-        $this->server->set(['worker_num' => 4]);
+        $this->server->set(['worker_num' => 1, 'http_compression' => true]);
     }
 
     public function getServer(): SwooleServer
