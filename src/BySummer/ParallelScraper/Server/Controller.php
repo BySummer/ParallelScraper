@@ -10,10 +10,7 @@ class Controller
 {
     public function __construct(Request $request, Response $response, Client $client)
     {
-        if (!isset($request->get['url'])) {
-            $response->write("Укажите Url.");
-            return;
-        }
+        if (!isset($request->get['url'])) return;
 
         $response->write(
             $client->request('GET', $request->get['url'])->text()

@@ -17,7 +17,7 @@ class Server
 
     public function __construct()
     {
-        $this->server = new SwooleServer(Config::SERVER_ADDRESS, Config::SERVER_PORT);
+        $this->server = new SwooleServer(Config::SERVER_IP, Config::SERVER_PORT);
         $this->chrome = new ChromeClient();
         $this->server->set(['worker_num' => 1, 'http_compression' => true]);
     }
