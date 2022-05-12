@@ -10,6 +10,8 @@ use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
+require_once 'vendor/autoload.php';
+
 class Query
 {
     private array               $opts;
@@ -49,7 +51,9 @@ class Query
                 ]
             )->getContent();
 
-            return $this->jsonFactory->createSuccessResponse([$response]);
+            return $this->jsonFactory->createSuccessResponse(
+                json_decode($response, true)
+            );
         } catch (TransportExceptionInterface|ClientExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface $e) {
             return $this->jsonFactory->createFailureResponse([$e->getMessage()]);
         }

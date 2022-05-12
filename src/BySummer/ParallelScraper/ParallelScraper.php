@@ -29,6 +29,27 @@ class ParallelScraper
             }
         }
 
+        var_dump($result);
         return $result;
     }
 }
+
+$class = new ParallelScraper();
+
+$class::asyncRequest(
+    [
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+    ]
+);
