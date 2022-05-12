@@ -31,8 +31,7 @@ class Server
     {
         $client = $this->chrome->getClient();
 
-        $this->server->on('Request', function(Request $request, Response $response) use ($client)
-        {
+        $this->server->on('Request', function (Request $request, Response $response) use ($client) {
             new Controller($request, $response, $client);
         });
 

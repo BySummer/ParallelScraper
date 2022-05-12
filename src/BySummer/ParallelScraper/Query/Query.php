@@ -12,15 +12,15 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 class Query
 {
-    private array $opts;
+    private array               $opts;
     private ResponseJsonFactory $jsonFactory;
-    private CurlHttpClient $client;
+    private CurlHttpClient      $client;
 
     public function __construct(array $opts)
     {
-        $this->opts = $opts;
+        $this->opts        = $opts;
         $this->jsonFactory = new ResponseJsonFactory();
-        $this->client = new CurlHttpClient();
+        $this->client      = new CurlHttpClient();
     }
 
     public function getUrl(): ?string
@@ -32,7 +32,7 @@ class Query
     {
         $url = $this->getUrl();
 
-        if(empty($url)) {
+        if (empty($url)) {
             return $this->jsonFactory->createFailureResponse(
                 ["Укажите URL флаг: --url https://..."]
             );
@@ -44,7 +44,7 @@ class Query
                 Config::SERVER_ADDRESS,
                 [
                     'query' => [
-                        'url'  => $url
+                        'url' => $url,
                     ],
                 ]
             )->getContent();
