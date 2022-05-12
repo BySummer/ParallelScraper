@@ -6,6 +6,7 @@ use BySummer\ParallelScraper\Client\ChromeClient;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Swoole\Http\Server as SwooleServer;
+use BySummer\ParallelScraper\Config;
 
 require_once 'vendor/autoload.php';
 
@@ -16,7 +17,7 @@ class Server
 
     public function __construct()
     {
-        $this->server = new SwooleServer("127.0.0.1", 9501);
+        $this->server = new SwooleServer(Config::SERVER_ADDRESS, Config::SERVER_PORT);
         $this->chrome = new ChromeClient();
         $this->server->set(['worker_num' => 1, 'http_compression' => true]);
     }
