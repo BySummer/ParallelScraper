@@ -4,8 +4,6 @@ namespace BySummer\ParallelScraper;
 
 use BySummer\ParallelScraper\Client\Request\RequestManager;
 
-require_once 'vendor/autoload.php';
-
 class ParallelScraper
 {
     /**
@@ -30,9 +28,3 @@ class ParallelScraper
         return (new RequestManager())->query($url);
     }
 }
-
-$class = new ParallelScraper();
-
-$response = $class::query('https://api64.ipify.org?format=json');
-
-var_dump($response);

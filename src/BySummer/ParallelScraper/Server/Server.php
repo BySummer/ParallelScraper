@@ -8,8 +8,6 @@ use Swoole\Http\Response;
 use Swoole\Http\Server as SwooleServer;
 use BySummer\ParallelScraper\Config;
 
-require_once 'vendor/autoload.php';
-
 class Server
 {
     private SwooleServer $server;
@@ -38,6 +36,3 @@ class Server
         $this->server->start();
     }
 }
-
-$server = new Server();
-$server->run();
