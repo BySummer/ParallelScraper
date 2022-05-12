@@ -23,7 +23,7 @@ class ParallelScraper
         while(count($channels) > 0) {
             foreach ($channels as $key => $channel) {
                 if ($channel instanceof Process && !$channel->isRunning()) {
-                    $result[$key] = [$channel->getOutput()];
+                    $result[$key] = $channel->getOutput();
                     unset($channels[$key]);
                 }
             }

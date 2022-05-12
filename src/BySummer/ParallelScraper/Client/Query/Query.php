@@ -1,9 +1,9 @@
 <?php
 
-namespace BySummer\ParallelScraper\Query;
+namespace BySummer\ParallelScraper\Client\Query;
 
+use BySummer\ParallelScraper\Client\Response\ResponseJsonFactory;
 use BySummer\ParallelScraper\Config;
-use BySummer\ParallelScraper\Response\ResponseJsonFactory;
 use Symfony\Component\HttpClient\CurlHttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;

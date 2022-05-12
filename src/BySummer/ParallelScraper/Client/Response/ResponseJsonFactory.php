@@ -1,6 +1,6 @@
 <?php
 
-namespace BySummer\ParallelScraper\Response;
+namespace BySummer\ParallelScraper\Client\Response;
 
 class ResponseJsonFactory
 {
