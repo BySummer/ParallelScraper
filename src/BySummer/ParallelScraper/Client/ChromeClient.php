@@ -11,7 +11,7 @@ class ChromeClient
     public function __construct()
     {
         $this->client = Client::createChromeClient(
-            null, ['--headless', '--disable-gpu']
+            null, ['--headless', '--disable-gpu', '--no-sandbox']
         );
     }
 
